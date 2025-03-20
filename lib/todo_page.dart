@@ -103,4 +103,15 @@ class _TodoPageState extends State<TodoPage> {
             const Text(
               'List Tasks',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
+            ),Expanded(
+              child: ListView.builder(
+                itemCount: tasks.length,
+                itemBuilder: (context, index) {
+                  final task = tasks[index];
+                  return Card(
+                    elevation: 2,
+                    child: ListTile(
+                      title: Text(
+                        task['title'],
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
