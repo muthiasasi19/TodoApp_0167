@@ -55,3 +55,14 @@ class _TodoPageState extends State<TodoPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text('Task Date & Time:', style: TextStyle(fontSize: 16)),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    _selectedDate == null
+                        ? 'Select a date & time'
+                        : DateFormat(
+                          'dd-MM-yyyy hh:mm a',
+                        ).format(_selectedDate!),
+                  ),
+                ),
