@@ -87,4 +87,16 @@ class _TodoPageState extends State<TodoPage> {
                       errorText: _isError ? 'Please enter some text' : null,
                     ),
                   ),
+                ),const SizedBox(width: 10),
+                ElevatedButton(
+                  onPressed: _addTask,
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 20,
+                    ),
+                  ),
+                  child: const Text('Submit'),
                 ),
+              ],
+            ),
