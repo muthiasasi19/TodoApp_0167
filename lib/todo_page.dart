@@ -65,4 +65,15 @@ class _TodoPageState extends State<TodoPage> {
                           'dd-MM-yyyy hh:mm a',
                         ).format(_selectedDate!),
                   ),
+                ), IconButton(
+                  icon: const Icon(Icons.calendar_today),
+                  onPressed: _showDateTimePicker,
                 ),
+              ],
+            ),
+            if (_isDateError)
+              const Text(
+                'Please select a date & time',
+                style: TextStyle(color: Colors.red),
+              ),
+            const SizedBox(height: 10),
