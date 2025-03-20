@@ -19,3 +19,23 @@ class _CounterPageState extends State<CounterPage> {
       listCounter.add(_counter.toString());
     });
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Counter Page')),
+      body: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          crossAxisCount: 5,
+        ),
+        itemCount: listCounter.length,
+        itemBuilder: (context, index) {
+          return CircleAvatar(
+            backgroundColor: (index % 2 == 0) ? Colors.red : Colors.blue,
+            child: Text('Data : ${listCounter[index]}'),
+          );
+        },
+      ),
+     
