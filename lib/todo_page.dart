@@ -45,7 +45,7 @@ class _TodoPageState extends State<TodoPage> {
     );
   }
 
-    @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Form Page'), centerTitle: true),
@@ -65,7 +65,8 @@ class _TodoPageState extends State<TodoPage> {
                           'dd-MM-yyyy hh:mm a',
                         ).format(_selectedDate!),
                   ),
-                ), IconButton(
+                ),
+                IconButton(
                   icon: const Icon(Icons.calendar_today),
                   onPressed: _showDateTimePicker,
                 ),
@@ -76,7 +77,8 @@ class _TodoPageState extends State<TodoPage> {
                 'Please select a date & time',
                 style: TextStyle(color: Colors.red),
               ),
-            const SizedBox(height: 10), Row(
+            const SizedBox(height: 10),
+            Row(
               children: [
                 Expanded(
                   child: TextField(
@@ -87,7 +89,8 @@ class _TodoPageState extends State<TodoPage> {
                       errorText: _isError ? 'Please enter some text' : null,
                     ),
                   ),
-                ),const SizedBox(width: 10),
+                ),
+                const SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: _addTask,
                   style: ElevatedButton.styleFrom(
@@ -99,11 +102,13 @@ class _TodoPageState extends State<TodoPage> {
                   child: const Text('Submit'),
                 ),
               ],
-            ),const SizedBox(height: 20),
+            ),
+            const SizedBox(height: 20),
             const Text(
               'List Tasks',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),Expanded(
+            ),
+            Expanded(
               child: ListView.builder(
                 itemCount: tasks.length,
                 itemBuilder: (context, index) {
@@ -114,7 +119,8 @@ class _TodoPageState extends State<TodoPage> {
                       title: Text(
                         task['title'],
                         style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),subtitle: Column(
+                      ),
+                      subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
@@ -129,3 +135,22 @@ class _TodoPageState extends State<TodoPage> {
                           ),
                         ],
                       ),
+                      trailing: Checkbox(
+                        value: task['done'],
+                        onChanged: (bool? value) {
+                          setState(() {
+                            tasks[index]['done'] = value ?? task['done'];
+                          });
+                        },
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
