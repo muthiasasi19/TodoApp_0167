@@ -28,3 +28,19 @@ class _TodoPageState extends State<TodoPage> {
       'done': true,
     },
   ];
+  void _showDateTimePicker() {
+    picker.DatePicker.showDateTimePicker(
+      context,
+      showTitleActions: true,
+      minTime: DateTime.now(),
+      maxTime: DateTime(2030, 12, 31),
+      onConfirm: (date) {
+        setState(() {
+          _selectedDate = date;
+          _isDateError = false;
+        });
+      },
+      currentTime: _selectedDate ?? DateTime.now(),
+      locale: picker.LocaleType.en,
+    );
+  }
