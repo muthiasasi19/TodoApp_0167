@@ -38,4 +38,33 @@ class _CounterPageState extends State<CounterPage> {
           );
         },
       ),
-     
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        spacing: 10,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                if (_counter >= 0 && listCounter.isNotEmpty) {
+                  _counter--;
+                  listCounter.removeLast();
+                }
+
+                //  _counter--;
+                // listCounter.removeLast();
+              });
+            },
+            child: Icon(Icons.remove),
+          ),
+
+          FloatingActionButton(
+            onPressed: () {
+              addData();
+            },
+            child: Icon(Icons.add),
+          ),
+        ],
+      ),
+    );
+  }
+}
