@@ -9,3 +9,11 @@ class TodoPage extends StatefulWidget {
   @override
   State<TodoPage> createState() => _TodoPageState();
 }
+
+class _TodoPageState extends State<TodoPage> {
+  final TextEditingController _nameController = TextEditingController();
+  DateTime? _selectedDate;
+  bool _isError = false;
+  bool _isDateError = false;
+
+ 
