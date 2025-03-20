@@ -114,4 +114,18 @@ class _TodoPageState extends State<TodoPage> {
                       title: Text(
                         task['title'],
                         style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Deadline: ${DateFormat('dd-MM-yyyy hh:mm a').format(task['deadline'])}',
+                          ),
+                          Text(
+                            task['done'] ? 'Done' : 'Not Done',
+                            style: TextStyle(
+                              color: task['done'] ? Colors.green : Colors.red,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
