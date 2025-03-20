@@ -76,4 +76,15 @@ class _TodoPageState extends State<TodoPage> {
                 'Please select a date & time',
                 style: TextStyle(color: Colors.red),
               ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 10), Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: _nameController,
+                    decoration: InputDecoration(
+                      labelText: 'Task Name',
+                      border: const OutlineInputBorder(),
+                      errorText: _isError ? 'Please enter some text' : null,
+                    ),
+                  ),
+                ),
