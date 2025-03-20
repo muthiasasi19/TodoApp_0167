@@ -28,6 +28,7 @@ class _TodoPageState extends State<TodoPage> {
       'done': true,
     },
   ];
+
   void _showDateTimePicker() {
     picker.DatePicker.showDateTimePicker(
       context,
@@ -45,10 +46,27 @@ class _TodoPageState extends State<TodoPage> {
     );
   }
 
+  void _addTask() {
+    setState(() {
+      _isError = _nameController.text.isEmpty;
+      _isDateError = _selectedDate == null;
+    });
+
+    if (!_isError && !_isDateError) {
+      tasks.add({
+        'title': _nameController.text,
+        'deadline': _selectedDate!,
+        'done': false,
+      });
+      _nameController.clear();
+      _selectedDate = null;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Form Page'), centerTitle: true),
+      appBar: AppBar(title: const Text('Task Manager'), centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
