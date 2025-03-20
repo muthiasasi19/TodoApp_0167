@@ -44,3 +44,14 @@ class _TodoPageState extends State<TodoPage> {
       locale: picker.LocaleType.en,
     );
   }
+
+    @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Form Page'), centerTitle: true),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('Task Date & Time:', style: TextStyle(fontSize: 16)),
